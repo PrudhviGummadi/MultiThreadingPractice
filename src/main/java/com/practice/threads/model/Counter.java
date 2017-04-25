@@ -7,9 +7,14 @@ public class Counter {
   private static int count3 = 0;
   private static int count4 = 0;
   private static int count5 = 0;
+  private int count6 = 0;
 
   public void increment1(){
-    count1++;
+    System.out.println("First");
+    for (int i = 1; i <= 10000; i++) {
+      count1++;
+    }
+    System.out.println("Exit");
   }
 
   public synchronized void increment2() throws InterruptedException {
@@ -17,24 +22,43 @@ public class Counter {
   }
 
   public static void increment3() {
+    System.out.println("Third");
     for (int i = 1; i <= 10000; i++) {
-      System.out.println("Thread name:" + Thread.currentThread().getName());
       count3++;
     }
+    System.out.println("Exit");
   }
 
   public static synchronized void increment4() {
+    System.out.println("Fourth");
     for (int i = 1; i <= 10000; i++) {
-      System.out.println("Thread name:" + Thread.currentThread().getName());
       count4++;
     }
+    System.out.println("Exit");
   }
 
+  // there is no guarantee that all the instructions in the below method will be executed at the same order
+  // with order thread disturbing this flow.
+  // For example lets say thread1 executed the sysout line immediately after that system allocated resource to
+  // thread2 but thread 2 can't access below method but it can access any other method in this class
   public static synchronized void increment5() {
+    System.out.println("Fifth");
     for (int i = 1; i <= 10000; i++) {
-      System.out.println("Thread name:" + Thread.currentThread().getName());
       count5++;
     }
+    System.out.println("Exit");
+  }
+
+  public void increment6() {
+
+    synchronized (this) {
+      System.out.println("Sixth");
+      for (int i = 1; i <= 10000; i++) {
+        count6++;
+      }
+      System.out.println("Exit");
+    }
+
   }
 
   public int getCount1() {
@@ -75,6 +99,14 @@ public class Counter {
 
   public static void setCount5(int count5) {
     Counter.count5 = count5;
+  }
+
+  public int getCount6() {
+    return count6;
+  }
+
+  public void setCount6(int count6) {
+    this.count6 = count6;
   }
 
 }

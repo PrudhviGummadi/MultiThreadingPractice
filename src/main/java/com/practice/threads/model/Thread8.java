@@ -8,11 +8,11 @@ public class Thread8 extends Thread {
 
   @Override
   public void run() {
-      Counter.increment3();
+    Counter.increment3();
 
-      Counter.increment4();
+    Counter.increment4();
 
-      Counter.increment5();
+    Counter.increment5();
 
   }
 
