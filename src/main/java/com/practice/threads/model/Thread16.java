@@ -2,8 +2,11 @@ package com.practice.threads.model;
 
 public class Thread16 extends Thread {
 
-  public Thread16(String name) {
+  private final long sleep;
+
+  public Thread16(String name, long sleep) {
     super(name);
+    this.sleep = sleep;
   }
 
   @Override
@@ -11,7 +14,7 @@ public class Thread16 extends Thread {
     System.out.println("Inside " + currentThread().getName() + " run method");
     try {
       System.out.println(currentThread().getName() + " is sleeping");
-      currentThread().sleep(2000);
+      currentThread().sleep(sleep);
       System.out.println(currentThread().getName() + "  wakeup from sleeep");
     } catch (InterruptedException e) {
       e.printStackTrace();
