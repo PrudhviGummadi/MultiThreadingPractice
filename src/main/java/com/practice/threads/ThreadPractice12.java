@@ -1,13 +1,15 @@
 package com.practice.threads;
 
-import com.practice.threads.model.Thread16;
+import com.practice.threads.model.Thread17;
 
-public class ThreadPractice11 {
+public class ThreadPractice12 {
 
   public static void main(String[] args) throws InterruptedException {
 
-    Thread thread1 = new Thread16("16th 1st thread");
-    Thread thread2 = new Thread16("16th 2nd thread ");
+    Object lock = new Object();
+
+    Thread thread1 = new Thread17("17th 1st thread", lock);
+    Thread thread2 = new Thread17("17th 2nd thread", lock);
 
     thread1.start();
     thread2.start();
