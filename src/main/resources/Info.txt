@@ -1,0 +1,7 @@
+Please refer the jenkov mutithreading tutorials for multithreading practice
+
+http://tutorials.jenkov.com/java-concurrency/threadlocal.html
+
+
+Please refer JVM internal model to understand the difference between the volatile and synchronized keyword.
+
