@@ -7,7 +7,7 @@ import com.practice.threads.model.WaitNotify;
 public class ThreadSignalPractice {
 
   /*
-   * wait notify practice. In this example there is a chance of missing signals
+   * wait notify practice.
    */
   public static void main(String[] args) throws InterruptedException {
     WaitNotify waitNotify = new WaitNotify();

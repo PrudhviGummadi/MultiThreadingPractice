@@ -8,6 +8,8 @@ public class Counter {
   private static int count4 = 0;
   private static int count5 = 0;
   private int count6 = 0;
+  private volatile int count7 = 0;
+  private volatile int count8 = 0;
 
   public void increment1(){
     System.out.println("First");
@@ -61,6 +63,19 @@ public class Counter {
 
   }
 
+  public void increment7() {
+    for (int i = 1; i <= 10000; i++) {
+      count7++;
+    }
+
+  }
+
+  public synchronized void increment8() {
+    for (int i = 1; i <= 10000; i++) {
+      count8++;
+    }
+  }
+
   public int getCount1() {
     return count1;
   }
@@ -107,6 +122,22 @@ public class Counter {
 
   public void setCount6(int count6) {
     this.count6 = count6;
+  }
+
+  public int getCount7() {
+    return count7;
+  }
+
+  public void setCount7(int count7) {
+    this.count7 = count7;
+  }
+
+  public int getCount8() {
+    return count8;
+  }
+
+  public void setCount8(int count8) {
+    this.count8 = count8;
   }
 
 }
